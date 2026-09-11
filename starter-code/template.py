@@ -25,6 +25,7 @@ PRICING_1M_TOKENS = {
     "gpt-4o": {"input": 5.00, "output": 20.00},
     "gpt-4o-mini": {"input": 0.150, "output": 0.600},
     "gemini-2.5-flash": {"input": 0.075, "output": 0.300},
+    "gemini-3.6-flash": {"input": 0.075, "output": 0.300},
     "gemini-2.5-pro": {"input": 1.25, "output": 5.00},
     "claude-3-5-sonnet": {"input": 3.00, "output": 15.00},
     "claude-3-5-haiku": {"input": 0.80, "output": 4.00},
@@ -33,7 +34,7 @@ PRICING_1M_TOKENS = {
 # Standard Model Identifiers
 OPENAI_MODEL = "gpt-4o"
 OPENAI_MINI_MODEL = "gpt-4o-mini"
-GEMINI_MODEL = "gemini-2.5-flash"
+GEMINI_MODEL = "gemini-3.6-flash"
 ANTHROPIC_MODEL = "claude-3-5-haiku"
 
 
@@ -209,7 +210,7 @@ def compare_models(prompt: str) -> dict:
 
     cost_4o = calc_cost("gpt-4o", usage_4o["input_tokens"], usage_4o["output_tokens"])
     cost_mini = calc_cost("gpt-4o-mini", usage_mini["input_tokens"], usage_mini["output_tokens"])
-    cost_gemini = calc_cost("gemini-2.5-flash", usage_gemini["input_tokens"], usage_gemini["output_tokens"])
+    cost_gemini = calc_cost(GEMINI_MODEL, usage_gemini["input_tokens"], usage_gemini["output_tokens"])
 
     return {
         "gpt4o": {
